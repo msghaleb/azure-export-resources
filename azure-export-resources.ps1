@@ -106,21 +106,7 @@ Catch {
             Catch {
                 Write-Output "Failed to collect resources for $subname"
             }
-            
-            #Custom Roles do not display their Name in these results. We are forcing this behavior for improved reporting
-            #As this is only exporting Owners and Admins there will be no custom roles, however just in case you modified the above part
-            #Foreach ($role in $AzureResources) {
-            #  $ObjectId = $role.ObjectId
-            #  $DisplayName = $role.DisplayName
-            #  If ($role.RoleDefinitionName -eq $null) {
-            #    $role.RoleDefinitionName = (Get-AzureRmRoleDefinition -Id $role.RoleDefinitionId).Name
-            #  }
-            #  if ($role.ObjectType -eq "Group" -and !(Test-Path -path "GroupMembers--$DisplayName.csv")) {
-            #    $Members = Get-AzureADGroupMember -ObjectId $ObjectId
-            #    $Members | Export-CSV "$groupsPath\GroupMembers--$DisplayName.csv" -Delimiter ';'
-            #  }
-            #}
-            
+                       
             #Export the subscription resrouces to a CSV file labeled by the subscription name
             $csvSubName = $SubName.replace("/","---")
             $Current | Export-CSV "$subsPath\Subscription--$csvSubName-Roles.csv" -Delimiter ';'
