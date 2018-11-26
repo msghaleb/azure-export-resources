@@ -1,0 +1,3 @@
+#TYPE Selected.Microsoft.Azure.Commands.ResourceManager.Cmdlets.SdkModels.PSResource
+"SubscriptionName";"SubscriptionID";"Name";"ResourceGroupName";"ResourceType";"Location"
+"MoGa MSDN";"b13e2c64-5058-484a-a884-8013f6b9a732";"cs4b13e2c645058x484axa88";"cloud-shell-storage-westus";"Microsoft.Storage/storageAccounts";"westus"

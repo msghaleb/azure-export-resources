@@ -1,0 +1,5 @@
+#TYPE Selected.Microsoft.Azure.Commands.ResourceManager.Cmdlets.SdkModels.PSResource
+"SubscriptionName";"SubscriptionID";"Name";"ResourceGroupName";"ResourceType";"Location"
+"Agile-BI-Azure-Subscription-2";"10d348d1-e991-47c3-b207-cc86d12b3685";"agilebisqldw01";"abiuseastdla";"Microsoft.Sql/servers";"eastus"
+"Agile-BI-Azure-Subscription-2";"10d348d1-e991-47c3-b207-cc86d12b3685";"agilebisqldw01/master";"abiuseastdla";"Microsoft.Sql/servers/databases";"eastus"
+"Agile-BI-Azure-Subscription-2";"10d348d1-e991-47c3-b207-cc86d12b3685";"agilebisqldw01/SMDP_DATAPROD";"abiuseastdla";"Microsoft.Sql/servers/databases";"eastus"
