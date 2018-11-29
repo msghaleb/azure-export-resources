@@ -108,13 +108,13 @@ Catch {
             }
                        
             #Export the subscription resrouces to a CSV file labeled by the subscription name
-            $csvSubName = $SubName.replace("/","---")
-            $Current | Export-CSV "$subsPath\Subscription--$csvSubName-Roles.csv" -Delimiter ';'
+            $csvAzureResources = $SubName.replace("/","---")
+            $Current | Export-CSV "$subsPath\Subscription--$csvAzureResources-Roles.csv" -Delimiter ';'
         }
     }
 
     #Export All resrouces in to a single CSV file
-    $AzureResources | Export-CSV "$outputPath\Subscription--All-Roles.csv" -Delimiter ';'
+    $AzureResources | Export-CSV "$outputPath\Azure--All-Resources.csv" -Delimiter ';'
 
     # HTML report
     $a = "<style>"
