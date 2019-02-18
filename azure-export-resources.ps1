@@ -100,7 +100,8 @@ Catch {
                 #############################################################################################################################
                 #### Modify this line to filter what you want in your results.
                 #############################################################################################################################
-                $Current = Get-AzureRMResource | Select-Object -Property @{Name = 'SubscriptionName'; Expression = {$sub.name}}, @{Name = 'SubscriptionID'; Expression = {$sub.id}}, Name, ResourceGroupName, ResourceType, Location
+                $Current = Get-AzureRMResource | Where-Object {$_.ResourceType -eq "Microsoft.ContainerService/managedClusters"} | Select-Object -Property @{Name = 'SubscriptionName'; Expression = {$sub.name}}, @{Name = 'SubscriptionID'; Expression = {$sub.id}}, Name, ResourceGroupName, ResourceType, Location
+                #$Current = Get-AzureRMResource | Select-Object -Property @{Name = 'SubscriptionName'; Expression = {$sub.name}}, @{Name = 'SubscriptionID'; Expression = {$sub.id}}, Name, ResourceGroupName, ResourceType, Location
                 $AzureResources += $Current
             } 
             Catch {
@@ -109,12 +110,12 @@ Catch {
                        
             #Export the subscription resrouces to a CSV file labeled by the subscription name
             $csvAzureResources = $SubName.replace("/","---")
-            $Current | Export-CSV "$subsPath\Subscription--$csvAzureResources-Roles.csv" -Delimiter ';'
+            $Current | Export-CSV "$subsPath\Subscription--$csvAzureResources-resrouces.csv" -Delimiter ';' -force -notypeinformation
         }
     }
 
     #Export All resrouces in to a single CSV file
-    $AzureResources | Export-CSV "$outputPath\Azure--All-Resources.csv" -Delimiter ';'
+    $AzureResources | Export-CSV "$outputPath\Azure--All-Resources.csv" -Delimiter ';' -force -notypeinformation
 
     # HTML report
     $a = "<style>"
